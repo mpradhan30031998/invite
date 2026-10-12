@@ -125,7 +125,7 @@ cite{display:block;margin-top:1.4rem;color:var(--gold);font:italic 500 1.15rem '
 
 <!-- Background Music Audio Tag -->
 <audio id="bgm" loop>
-  <source src="your-music-file.mp3" type="audio/mpeg">
+  <source src="songwed.mp3" type="audio/mpeg">
 </audio>
 
 <button id="music-btn" aria-label="Toggle Music">🎵</button>
@@ -153,7 +153,7 @@ const E=[
 const Q=[['Whatever our souls are made of, his and mine are the same.','Emily Brontë','#25080f'],['Two souls with but a single thought, two hearts that beat as one.','Friedrich Halm','#2a0f1e'],['Love is composed of a single soul inhabiting two bodies.','Aristotle','#2a1030'],['Grow old along with me! The best is yet to be.','Robert Browning','#25080f']];
 const enc=s=>encodeURIComponent(s).replace(/'/g,'%27');
 const gc=x=>'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+enc('Achala & Priyanandan - '+x.n)+'&dates='+x.s+'/'+x.e+'&details='+enc(x.q)+'&location='+enc(x.v)+'&ctz=Asia/Kolkata';
-const qt=(q,end)=>`<section class="qt${end?' end':''}" data-c="${q[2]}" style="--ac:#e8c46e"><div class="bg"></div><div class="orn">❦</div><blockquote>${q[0].split(' ').map((w,i)=>`<span style="--i:${i}">${w}</span> `).join('')}</blockquote>${end?'<div class="sign">With love and blessings<strong>Achala &amp; Priyanandan</strong>and their families<br><a href="guest-travel-guide.html" target="_blank" rel="noopener noreferrer" class="footer-link">Guest Assistance &amp; Travel</a></div>':''}</section>`;
+const qt=(q,end)=>`<section class="qt${end?' end':''}" data-c="${q[2]}" style="--ac:#e8c46e"><div class="bg"></div><div class="orn">❦</div><blockquote>${q[0].split(' ').map((w,i)=>`<span style="--i:${i}">${w}</span> `).join('')}</blockquote>${end?'<div class="sign">With love and blessings<strong>Achala &amp; Priyanandan</strong>and their families<br><a href="travel.html" target="_blank" rel="noopener noreferrer" class="footer-link">Guest Assistance &amp; Travel</a></div>':''}</section>`;
 const ev=(x,i)=>`<section class="ev" id="e${i}" data-c="${x.c}" style="--ac:${x.a}"><div class="bg"${x.img?` style="--img:url(${x.img})"`:''}></div><div class="num">${i+1}</div><div class="wrap a${i}"><article class="card"><p class="kick">Day ${i+1}: ${x.k}</p><h2>${x.n}</h2><p class="q">“${x.q}”</p><p class="when"><span>📅 ${x.d}</span><span>🕒 ${x.t}</span></p><div class="links"><a class="venue" href="${x.m}" target="_blank" rel="noopener">📍 ${x.v}</a><a class="gcal" href="${gc(x)}" target="_blank" rel="noopener">＋ Add to Google Calendar</a></div></article></div></section>`;
 document.getElementById('main').innerHTML=qt(Q[0])+ev(E[0],0)+ev(E[1],1)+qt(Q[1])+ev(E[2],2)+ev(E[3],3)+qt(Q[2])+ev(E[4],4)+qt(Q[3],1);
 document.getElementById('dots').innerHTML=E.map((x,i)=>`<a href="#e${i}" title="${x.n}" aria-label="${x.n}"></a>`).join('');
