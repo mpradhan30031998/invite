@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Achala &amp; Priyanandan – The Wedding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#e8c46e;--gold2:#fff1c7;--ink:#f7eedf;--mut:#cfc0a8;--bg:#25080f;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:#25080f;background-color:var(--bg);color:var(--ink);font:300 1.05rem/1.65 Jost,system-ui,sans-serif;overflow-x:hidden;transition:background-color 1.4s ease}
+a{color:inherit}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;width:100%;height:3px;transform:scaleX(0);transform-origin:0 0;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));z-index:30}
+#dots{position:fixed;right:max(10px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;z-index:20}
+#dots a{position:relative;width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);transition:.5s}
+#dots a::after{content:"";position:absolute;inset:-9px}
+#dots a.on{background:var(--gold);transform:scale(1.6);box-shadow:0 0 14px var(--gold)}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden;perspective:600px}
+#petals i{position:absolute;top:-5vh;border-radius:80% 0 80% 20%;background:linear-gradient(135deg,#ffd9e2,#ff8fab);animation:fall linear infinite}
+@keyframes fall{from{transform:translate3d(0,0,0)}to{transform:translate3d(var(--dx),112vh,120px) rotateX(720deg) rotateY(540deg) rotateZ(360deg)}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:10vh 6vw;overflow:hidden;perspective:1000px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,rgba(232,196,110,.2),transparent 60%),radial-gradient(circle at 15% 85%,rgba(170,30,70,.4),transparent 50%),radial-gradient(circle at 90% 10%,rgba(120,40,160,.25),transparent 45%)}
+.rings{position:absolute;left:50%;top:50%;width:min(96vw,720px);aspect-ratio:1;transform:translate(-50%,-50%) rotateX(55deg);transform-style:preserve-3d}
+.rings i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(232,196,110,.4);animation:orb 18s linear infinite}
+.rings i:nth-child(2){inset:9%;border-style:dashed;--a:25deg;animation-duration:26s;animation-direction:reverse}
+.rings i:nth-child(3){inset:18%;border-color:rgba(255,158,192,.45);--a:-45deg;animation-duration:22s}
+.rings i:nth-child(4){inset:27%;border-style:dotted;border-width:2px;--a:80deg;animation-duration:30s;animation-direction:reverse}
+.rings i{--a:70deg}
+@keyframes orb{from{transform:rotateX(var(--a)) rotateY(0)}to{transform:rotateX(var(--a)) rotateY(360deg)}}
+.hc{position:relative;z-index:2;will-change:transform,opacity}
+.inv{margin:0;color:var(--mut);font:italic 500 clamp(1.05rem,3vw,1.4rem) 'Cormorant Garamond',Georgia,serif;animation:fade 2s .2s both}
+h1{margin:.2em 0;font:400 clamp(3.6rem,14vw,9rem)/1.02 'Great Vibes','Brush Script MT',cursive}
+h1 span{display:block;padding:0 .1em;background:linear-gradient(100deg,#b8893a,#fff1c7 30%,#e8c46e 50%,#fff1c7 70%,#b8893a);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1.8s cubic-bezier(.2,.8,.2,1) both,shine 6s linear infinite}
+h1 span:last-child{animation-delay:.6s,0s}
+h1 b{display:block;font:italic 500 clamp(1.5rem,4.5vw,2.6rem) 'Cormorant Garamond',Georgia,serif;color:var(--gold);animation:fade 2s 1s both}
+@keyframes rise{from{opacity:0;transform:translateY(50px) translateZ(-200px) rotateX(55deg);filter:blur(14px)}}
+@keyframes shine{to{background-position:-250% 0}}
+@keyframes fade{from{opacity:0}}
+.date{margin:.6rem 0 0;font:600 clamp(1.4rem,4.5vw,2.2rem) 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;animation:fade 2s 1.4s both}
+.sub{margin:.2rem 0 0;color:var(--mut);animation:fade 2s 1.7s both}
+.cta{display:inline-block;margin-top:2rem;padding:.85em 2em;border:1px solid var(--gold);border-radius:99px;text-decoration:none;color:var(--gold2);transition:.4s;animation:fade 2s 2.4s both}
+.cta:hover,.cta:focus-visible{background:var(--gold);color:#2a1205;box-shadow:0 0 30px rgba(232,196,110,.6)}
+.scroll{position:absolute;bottom:3vh;left:50%;width:1px;height:50px;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:drip 2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* sections */
+.ev,.qt{position:relative;min-height:100svh;display:grid;place-items:center;padding:12vh 6vw;overflow:hidden}
+.bg{position:absolute;inset:-15% 0;z-index:0;will-change:transform;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);background:radial-gradient(circle at 18% 22%,color-mix(in srgb,var(--ac) 20%,transparent),transparent 55%),radial-gradient(circle at 85% 80%,color-mix(in srgb,var(--ac) 15%,transparent),transparent 60%)}
+.bg::before{content:"";position:absolute;inset:0;background:var(--img,none) center/cover;opacity:.6;transition:opacity .6s ease}
+.bg.hidden-img::before{opacity:0}
+.bg::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(at 50% 50%,rgba(255,255,255,.025) 0 6deg,transparent 6deg 12deg);pointer-events:none}
+.num{position:absolute;z-index:0;right:3vw;top:7vh;font:600 clamp(9rem,34vw,24rem)/1 'Cormorant Garamond',Georgia,serif;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--ac) 45%,transparent);opacity:.55;pointer-events:none}
+
+/* Faster exit transition when scrolling out of view */
+.wrap{position:relative;z-index:6;width:min(680px,100%);perspective:1400px;opacity:0;transition:opacity .5s,transform .6s;}
+.a0{transform:perspective(1200px) translateX(-22vw) rotateY(-60deg)}
+.a1{transform:perspective(1200px) translateY(16vh) rotateX(-65deg)}
+.a2{transform:perspective(1200px) scale(.5) translateZ(-400px) rotateZ(-8deg)}
+.a3{transform:perspective(1200px) translateX(22vw) rotateY(60deg)}
+.a4{transform:perspective(1200px) translateY(16vh) rotateX(55deg) rotateZ(5deg) scale(.8)}
+
+/* Smooth, longer transition when scrolling into view */
+.in .wrap{opacity:1;transform:none;transition:opacity 1.2s,transform 1.5s cubic-bezier(.2,.8,.2,1)}
+
+.card{position:relative;padding:clamp(1.6rem,5vw,3rem);text-align:center;transform-style:preserve-3d;transform:rotateX(calc(var(--sx,0)*1deg + var(--py,0)*-7deg)) rotateY(calc(var(--px,0)*8deg));transition:transform .25s ease-out;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:24px;background:linear-gradient(145deg,rgba(15,10,15,.75),rgba(15,10,15,.45));border:1px solid color-mix(in srgb,var(--ac) 40%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.card::after{content:"";position:absolute;inset:0;border-radius:24px;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.12),transparent 45%)}
+
+/* Faster exit transition for card elements */
+.card>*{margin:0;opacity:0;transform:translate3d(0,26px,0);transition:opacity .4s,transform .4s;}
+
+/* Entrance transition with delay cascade */
+.in .card>*{opacity:1;transform:translateZ(28px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--k)*.12s + .4s)}
+
+.kick{color:var(--ac);font:italic 500 1.2rem 'Cormorant Garamond',Georgia,serif}
+.card h2{font:600 clamp(2.2rem,8vw,3.6rem)/1.1 'Cormorant Garamond',Georgia,serif;margin:.15em 0 .5em;color:var(--gold2)}
+.q{font:italic 400 clamp(1.15rem,3.2vw,1.4rem)/1.5 'Cormorant Garamond',Georgia,serif;color:var(--ink);max-width:34em;margin:0 auto 1.6rem!important}
+.when{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;font-weight:400;margin-bottom:1.6rem!important}
+.links{display:flex;flex-wrap:wrap;gap:14px 22px;justify-content:center;align-items:center}
+.venue{color:var(--gold2);text-decoration:none;border-bottom:1px solid var(--ac);padding:.3em 0}
+.venue:hover{color:var(--ac)}
+.gcal{padding:.8em 1.5em;border-radius:99px;text-decoration:none;font-weight:500;color:#2a1205;background:linear-gradient(135deg,#f9e2a0,#c99a3c);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:.3s}
+.gcal:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 30px rgba(232,196,110,.4)}
+.venue:focus-visible,.gcal:focus-visible,.cta:focus-visible,#dots a:focus-visible,.footer-link:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+
+/* Footer Link */
+.footer-link{display:inline-block;margin-top:2.5rem;padding:.85em 2em;border:1px solid var(--gold);border-radius:99px;text-decoration:none;color:var(--gold2);transition:.4s;font-style:normal;font-weight:400;font-family:Jost,system-ui,sans-serif;font-size:1.05rem}
+.footer-link:hover{background:var(--gold);color:#2a1205;box-shadow:0 0 30px rgba(232,196,110,.6)}
+
+/* quotes */
+.qt{min-height:85svh;text-align:center;align-content:center}
+.qt>*{position:relative;z-index:1}
+.orn{color:var(--gold);font-size:1.8rem;margin-bottom:1rem;transition:transform 1.6s;transform:rotateY(0)}
+.qt.in .orn{transform:rotateY(720deg)}
+blockquote{margin:0;max-width:880px;perspective:800px;font:italic 400 clamp(1.9rem,6vw,3.7rem)/1.25 'Cormorant Garamond',Georgia,serif}
+
+/* Fast exit for quote words */
+blockquote span{display:inline-block;opacity:0;transform:translateY(34px) rotateX(-90deg);transition:opacity .4s, transform .4s;}
+
+/* Entrance for quote words */
+.qt.in blockquote span{opacity:1;transform:none;transition:1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*.07s)}
+
+cite{display:block;margin-top:1.4rem;color:var(--gold);font:italic 500 1.15rem 'Cormorant Garamond',Georgia,serif;opacity:0;transition:opacity .4s}
+.qt.in cite{opacity:1;transition:opacity 1.5s 1.4s}
+
+.sign{margin-top:3rem;color:var(--mut);opacity:0;transition:opacity .4s}
+.qt.in .sign{opacity:1;transition:opacity 1.5s 2s}
+.sign strong{display:block;margin:.3rem 0;font:400 clamp(2.2rem,8vw,3.4rem) 'Great Vibes',cursive;color:var(--gold2)}
+
+@media(max-width:520px){.num{opacity:.35}.links{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.wrap,.card>*,blockquote span,cite,.sign,.inv,.date,.sub,.cta,h1 b{opacity:1!important;transform:none!important}#petals{display:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div><nav id="dots" aria-label="Events"></nav><div id="petals" aria-hidden="true"></div>
+<header class="hero" id="top" data-c="#25080f">
+  <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hc">
+    <p class="inv">Shubhamastu · Together with their families, they invite you to celebrate the wedding of</p>
+    <h1><span>Achala</span><b>&amp;</b><span>Priyanandan</span></h1>
+    <p class="date">18 – 22 November 2026</p>
+    <p class="sub">Five days. Five celebrations. One forever.</p>
+    <a class="cta" href="#e0">Begin the celebrations</a>
+  </div>
+  <div class="scroll" aria-hidden="true"></div>
+</header>
+<main id="main"></main>
+<script>
+const E=[
+{n:'Mehandi',img:'https://lh3.googleusercontent.com/d/1ZgvDgAXoirmj7V85vvvPhTe8V7GadOZA',k:'The festivities begin',c:'#0f2a1d',a:'#b9d36a',q:'Commencing the festivities with the auspicious touch of mehandi, a symbol of love, prosperity and joyous celebration.',d:'Wednesday, 18 November 2026',t:'7:00 PM onwards',v:"Bride's home",m:'https://maps.app.goo.gl/VZxB6Y1VMBp8c1Lt9?g_st=ac',s:'20261118T190000',e:'20261118T220000'},
+{n:'Muhurtha',img:'https://lh3.googleusercontent.com/d/1lZaAuKL51Cmw-vC_DMx27K6OTvgGgO32',k:'A sacred beginning',c:'#2b1608',a:'#ffb24a',q:'A sacred ritual honouring tradition and invoking peace, prosperity and joy for the couple.',d:'Thursday, 19 November 2026',t:'4:30 PM onwards',v:"Bride's home",m:'https://maps.app.goo.gl/VZxB6Y1VMBp8c1Lt9?g_st=ac',s:'20261119T163000',e:'20261119T193000'},
+{n:'Wedding (Dhaare)',img:'https://lh3.googleusercontent.com/d/12c_iEIC37x-VBUVtfiFEadkfhib7AqRr',k:'The sacred union',c:'#3a0a14',a:'#f2c46d',q:'The pinnacle of the celebrations. The sacred Dhaare unites Achala and Priyanandan for eternity, with water and milk poured over betel leaves and coconut amidst the chanting of holy mantras.',d:'Friday, 20 November 2026',t:'12:28 PM',v:'UVA Meridian Convention Center',m:'https://maps.app.goo.gl/UNiCgrphvqoT61FX8',s:'20261120T122800',e:'20261120T153000'},
+{n:"Reception (Groom's Side)",img:'https://lh3.googleusercontent.com/d/1dR_i9VZMnMnoNT8hJRvkc8JS8etNMCaU',k:'A grand welcome',c:'#1b1239',a:'#c9a6ff',q:'A celebratory afternoon to welcome our guests and honour the couple with a lavish banquet.',d:'Saturday, 21 November 2026',t:'12:00 PM',v:"Groom's home",m:'https://maps.app.goo.gl/gxC5QPSLurbLkhQs6?g_st=ac',s:'20261121T120000',e:'20261121T150000'},
+{n:"Reception (Bride's Side)",img:'https://lh3.googleusercontent.com/d/1uBkbT1k1nV2VPcv4ftjs-DADph0PVMwD',k:'A joyous homecoming',c:'#3a1226',a:'#ff9ec0',q:'A delightful concluding reception to celebrate the newlyweds and close five days of festivity in style.',d:'Sunday, 22 November 2026',t:'12:00 PM',v:"Bride's home",m:'https://maps.app.goo.gl/VZxB6Y1VMBp8c1Lt9?g_st=ac',s:'20261122T120000',e:'20261122T150000'}];
+const Q=[['Whatever our souls are made of, his and mine are the same.','Emily Brontë','#25080f'],['Two souls with but a single thought, two hearts that beat as one.','Friedrich Halm','#2a0f1e'],['Love is composed of a single soul inhabiting two bodies.','Aristotle','#2a1030'],['Grow old along with me! The best is yet to be.','Robert Browning','#25080f']];
+const enc=s=>encodeURIComponent(s).replace(/'/g,'%27');
+
+const gc=x=>'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+enc('Achala & Priyanandan - '+x.n)+'&dates='+x.s+'/'+x.e+'&details='+enc(x.q)+'&location='+enc(x.v)+'&ctz=Asia/Kolkata';
+const qt=(q,end)=>`<section class="qt${end?' end':''}" data-c="${q[2]}" style="--ac:#e8c46e"><div class="bg"></div><div class="orn">❦</div><blockquote>${q[0].split(' ').map((w,i)=>`<span style="--i:${i}">${w}</span> `).join('')}</blockquote>${end?'<div class="sign">With love and blessings<strong>Achala &amp; Priyanandan</strong>and their families<br><a href="guest-travel-guide.html" target="_blank" rel="noopener noreferrer" class="footer-link">Guest Assistance &amp; Travel</a></div>':''}</section>`;
+const ev=(x,i)=>`<section class="ev" id="e${i}" data-c="${x.c}" style="--ac:${x.a}"><div class="bg"${x.img?` style="--img:url(${x.img})"`:''}></div><div class="num">${i+1}</div><div class="wrap a${i}"><article class="card"><p class="kick">Day ${i+1}: ${x.k}</p><h2>${x.n}</h2><p class="q">“${x.q}”</p><p class="when"><span>📅 ${x.d}</span><span>🕒 ${x.t}</span></p><div class="links"><a class="venue" href="${x.m}" target="_blank" rel="noopener">📍 ${x.v}</a><a class="gcal" href="${gc(x)}" target="_blank" rel="noopener">＋ Add to Google Calendar</a></div></article></div></section>`;
+document.getElementById('main').innerHTML=qt(Q[0])+ev(E[0],0)+ev(E[1],1)+qt(Q[1])+ev(E[2],2)+ev(E[3],3)+qt(Q[2])+ev(E[4],4)+qt(Q[3],1);
+document.getElementById('dots').innerHTML=E.map((x,i)=>`<a href="#e${i}" title="${x.n}" aria-label="${x.n}"></a>`).join('');
+
+document.querySelectorAll('.card').forEach(c=>{
+  [...c.children].forEach((n,i)=>n.style.setProperty('--k',i));
+  c.addEventListener('pointermove',e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--px',x*2-1);
+    c.style.setProperty('--py',y*2-1);
+    c.style.setProperty('--gx',x*100+'%');
+    c.style.setProperty('--gy',y*100+'%');
+  });
+  c.addEventListener('pointerleave',()=>{
+    c.style.setProperty('--px',0);
+    c.style.setProperty('--py',0);
+  });
+  // The tap functionality to hide/show the image
+  c.addEventListener('click',e=>{
+    if(e.target.closest('a'))return; // don't trigger if they clicked a link
+    const b=c.closest('.ev').querySelector('.bg');
+    if(b)b.classList.toggle('hidden-img');
+  });
+});
+
+// petals
+const P=document.getElementById('petals');for(let i=0;i<22;i++){const p=document.createElement('i'),r=Math.random;p.style.cssText=`left:${r()*100}%;--dx:${(r()-.5)*40}vw;width:${8+r()*10}px;height:${10+r()*12}px;animation-duration:${9+r()*10}s;animation-delay:${-r()*18}s;opacity:${.25+r()*.45}`;P.appendChild(p)}
+
+// reveal + active section (Restored to toggle 'in' dynamically)
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  const isVisible = e.isIntersecting;
+  e.target.classList.toggle('in', isVisible);
+  
+  // If the section is scrolled out of view, automatically un-hide the background image 
+  // so it's fresh when the user scrolls back to it.
+  if(!isVisible) {
+    const bg = e.target.querySelector('.bg');
+    if(bg) bg.classList.remove('hidden-img');
+  }
+}),{threshold:.15});
+document.querySelectorAll('.ev,.qt').forEach(s=>io.observe(s));
+
+const dots=[...document.querySelectorAll('#dots a')];
+const ao=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;document.body.style.setProperty('--bg',e.target.dataset.c);dots.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-50% 0px -50% 0px'});
+document.querySelectorAll('[data-c]').forEach(s=>ao.observe(s));
+
+// scroll + pointer driven 3D
+const hc=document.querySelector('.hc'),rings=document.querySelector('.rings'),bar=document.getElementById('bar'),secs=[...document.querySelectorAll('.ev,.qt')];
+let mx=0,my=0,tk=false;
+const clamp=v=>Math.max(-1,Math.min(1,v));
+function frame(){tk=false;const y=scrollY,H=innerHeight;
+ bar.style.transform=`scaleX(${y/Math.max(1,document.documentElement.scrollHeight-H)})`;
+ if(y<H*1.2){hc.style.transform=`translate3d(0,${y*.35}px,${-y*.3}px) rotateY(${mx*6}deg) rotateX(${-my*5}deg)`;hc.style.opacity=Math.max(0,1-y/(H*.85));rings.style.transform=`translate(-50%,-50%) rotateX(${55+y*.04+my*10}deg) rotateZ(${y*.06}deg) rotateY(${mx*14}deg)`}
+ secs.forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom<-H||r.top>2*H)return;const o=(r.top+r.height/2-H/2)/H,bg=s.querySelector('.bg');
+  bg.style.transform=`translate3d(0,${o*-90}px,0) scale(1.1)`;
+  const n=s.querySelector('.num');if(n)n.style.transform=`translate3d(0,${o*160}px,0) rotateX(${o*30}deg)`;
+  const c=s.querySelector('.card');if(c)c.style.setProperty('--sx',clamp(o)*10)})}
+const req=()=>{if(!tk){tk=true;requestAnimationFrame(frame)}};
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+document.querySelector('.hero').addEventListener('pointermove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1;req()});
+frame();
+</script>
+</body>
+</html>
